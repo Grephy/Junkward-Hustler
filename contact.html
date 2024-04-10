@@ -279,6 +279,18 @@
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js"></script>
 
+    <script>
+        // Get a reference to the database service
+        var database = firebase.database();
+      
+        // Try reading some data
+        database.ref('/').once('value').then(function(snapshot) {
+          console.log("Connected to Firebase Realtime Database.");
+        }).catch(function(error) {
+          console.error("Error connecting to Firebase Realtime Database:", error);
+        });
+    </script>
+
     
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
