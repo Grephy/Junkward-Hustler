@@ -150,22 +150,22 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row g-3">
-                        <div class="col-12 ">
-                            <input type="text" value="" id="username" required class="form-control" placeholder="username" style="height: 55px;">
-                            
-                        </div>
-                    
-                        <div class="col-12">
-                            <input type="text" value="" id="password" required class="form-control" placeholder="password" style="height: 55px;">
-                            
-                        </div>
+                        <div class="col-12 " id="login-container">
+                                <h1>Login</h1>
+                                <form id="login-form">
+                                    <label class="col-12 "for="email">Email:</label>
+                                    <input class="col-12 "type="email" id="email" name="email" style="height: 55px;" required><br><br>
+                                    <label class="col-12 "for="password">Password:</label>
+                                    <input class="col-12 "type="password" id="password" name="password" style="height: 55px;" required><br><br>
                         
+                                </form>
+                        </div>
                         <div class="col-12 col-sm-6">
-                            <button class="btn btn-primary w-100 py-3" type="submit">login</button>
+                            <button type="submit" class="btn btn-primary w-100 py-3" type="submit">login</button>
                         </div>
 
                         <div class="col-12 col-sm-6">
-                            <button class="btn btn-primary w-100 py-3" type="submit">SignUp</button>
+                            <button type="submit" class="btn btn-primary w-100 py-3" type="submit">SignUp</button>
                         </div>
                     </div>
                 </div>
@@ -237,6 +237,11 @@
 
 
     <!-- JavaScript Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -250,6 +255,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
