@@ -157,7 +157,7 @@
                     <div class="row g-3">
                        
                         <div class="col-12 " id="login-container">
-                                <h1>Login</h1>
+                                <h1>Sign Up</h1>
                                 
                                     <label class="col-12 "for="email">Email:</label>
                                     <input class="col-12 "type="email" id="emailInp" name="email" placeholder="name@exaple.com" style="height: 55px;" required><br><br>
@@ -167,11 +167,11 @@
                                 
                         </div>
                         <div class="col-12 col-sm-6">
-                            <a href="logedin.html"><button type="submit" class="btn btn-primary w-100 py-3" type="submit">login</button></a>
+                            <a href="SignIn.html"><button  class="btn btn-primary w-100 py-3" type="button">login</button></a>
                         </div>
 
                         <div class="col-12 col-sm-6">
-                            <a href=""><button type="submit" class="btn btn-primary w-100 py-3" type="submit">Create User</button></a>
+                            <a ><button  class="btn btn-primary w-100 py-3" type="submit">Create User</button></a>
                         </div>
                     
                     </div>
@@ -301,10 +301,11 @@
             evt.preventDefault();
             createUserWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
             .then((userCredential) => {
-                console.log(credentials);
+                // set(ref(db,"UsersAuthList/"+ userCredential.user.uid),{})
+                // console.log(credentials);
                 // Signed in 
-                // const user = userCredential.user;
-                // console.log(user);
+                const user = userCredential.user;
+                console.log(user);
                 // ...
             })
             .catch((error) => {
