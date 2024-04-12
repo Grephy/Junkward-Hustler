@@ -301,7 +301,7 @@
             evt.preventDefault();
             createUserWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
             .then((userCredential) => {
-                // set(ref(db,"UsersAuthList/"+ userCredential.user.uid),{})
+                set(ref(db,"UsersAuthList/"+ userCredential.user.uid),{})
                 // console.log(credentials);
                 // Signed in 
                 const user = userCredential.user;

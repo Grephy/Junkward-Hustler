@@ -293,28 +293,52 @@
         let PasswordInp = document.getElementById("passwordInp");
         let LoginForm = document.getElementById("login-form");
 
+        // let SignInUser = evt => {
+        //     evt.preventDefault();
+        //     signInWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
+        //     .then((userCredential) => {
+        //         get(child(dbref,"UsersAuthList/"+ userCredential.user.uid)).then((snapshot) => {
+        //             if (snapshot.exists){
+        //                 sessionStorage.setItem
+        //             }
+        //         })
+        //         // console.log(credentials);
+        //         // Signed in 
+        //         const user = userCredential.user;
+        //         console.log(user);
+        //         // ...
+        //     })
+        //     .catch((error) => {
+        //         alert(error.message);
+        //         // const errorCode = error.code;
+        //         // const errorMessage = error.message;
+        //         console.log(error.code);
+        //         console.log(error.Message);
+        //         // ..
+        //     });
+        // }
+        // LoginForm.addEventListener('submit', SignInUser);
+
         let SignInUser = evt => {
-            evt.preventDefault();
-            signInWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
-            .then((userCredential) => {
-                get(child)
-                // console.log(credentials);
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
+        evt.preventDefault();
+        signInWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
+        .then((userCredential) => {
+            // Check if user exists
+            get(child(dbref,"UsersAuthList/"+ userCredential.user.uid)).then((snapshot) => {
+                if (snapshot.exists){
+                    // Redirect to index.html after successful login
+                    window.location.href = "index.html";
+                }
             })
-            .catch((error) => {
-                alert(error.message);
-                // const errorCode = error.code;
-                // const errorMessage = error.message;
-                console.log(error.code);
-                console.log(error.Message);
-                // ..
-            });
-        }
-        LoginForm.addEventListener('submit', SignInUser);
-      </script>
+        })
+        .catch((error) => {
+            alert(error.message);
+            console.error(error);
+        });
+    }
+    LoginForm.addEventListener('submit', SignInUser);
+
+    </script>
 
 </body>
 
