@@ -150,45 +150,51 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <!-- <form action="https://formsubmit.co/e9ca990b7de017b1d00bc5ebe6e0d32f" method="POST"> -->
+                    <form class="contact_form" action="#">
                     <div class="row g-3">
+                        
                         <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Your Name" style="height: 55px;">
+                            <input type="text" class="form-control name" placeholder="Your Name" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="email" class="form-control" placeholder="Your Email" style="height: 55px;">
+                            <input type="email" class="form-control email" placeholder="Your Email" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Your Mobile" style="height: 55px;">
+                            <input type="text" class="form-control mobile" placeholder="Your Mobile" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <select class="form-select" style="height: 55px;">
+                            <select class="form-select service" style="height: 55px;">
                                 <option selected>Choose Service</option>
                                 <option value="1">Scrap Pickup</option>
                                 <option value="2">Up Coming</option>
-                                <!-- <option value="3">Service 3</option> -->
+                                
                             </select>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="date" id="date" data-target-input="nearest">
                                 <input type="text"
-                                    class="form-control datetimepicker-input"
+                                    class="form-control datetimepicker-input date"
                                     placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="time" id="time" data-target-input="nearest">
                                 <input type="text"
-                                    class="form-control datetimepicker-input"
-                                    placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                    class="form-control datetimepicker-input time"
+                                    placeholder="Choose Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
                             </div>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            <textarea class="form-control msg" rows="5" placeholder="Message"></textarea>
                         </div>
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
                         </div>
                     </div>
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -271,6 +277,68 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- smptjs -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- <script>
+        const form = document.querySelector('.contact_form');
+        function sendMsg(e){
+        e.preventDefault();
+        
+            const name = document.querySelector('.name');
+            const email = document.querySelector('.email');
+            const mobile = document.querySelector('.mobile');
+            const service = document.querySelector('.service');
+            const date = document.querySelector('.date');
+            const time = document.querySelector('.time');
+            const msg = document.querySelector('.msg');
+
+                  
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "junkyardhustler@gmail.com",
+        Password : "p98F7FE60A8C7445B745D59832090C6E9B939",
+        To : 'scammerhacker124@gmail.com',
+        From : email.value,
+        Subject : "This is the subject",
+        Body : msg.value
+    }).then(
+    message => alert(message)
+    );
+    }
+
+    from.addEventListener('submit', sendMsg);
+    </script> -->
+    
+    <script>
+    const form = document.querySelector('form'); // Select the form element
+    function sendMsg(e) {
+    e.preventDefault();
+    const name = document.querySelector('.name');
+    const email = document.querySelector('.email');
+    const mobile = document.querySelector('.mobile');
+    const service = document.querySelector('.service');
+    const date = document.querySelector('.date');
+    const time = document.querySelector('.time');
+    const msg = document.querySelector('.msg');
+
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "junkyardhustler@gmail.com",
+        Password: "p98F7FE60A8C7445B745D59832090C6E9B939",
+        To: 'junkyardhustler@gmail.com',
+        From: email.value,
+        Subject: "This is the subject",
+        Body: msg.value
+    }).then(
+        message => alert(message)
+    );
+    }
+
+    form.addEventListener('submit', sendMsg); // Use the correct variable name "form"
+
+    </script>
 </body>
 
 </html>
