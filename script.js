@@ -8,7 +8,7 @@ function sendMail(){
         message : document.getElementById("message").value,
     }
 
-    emailjs.send("service_v2zsfzw","template_jybmqp7",parms)
+    emailjs.send("service_v2zsfzw","template_bjc11cf",parms)
         .then(() => {
             alert("Appointment Booked!!");
         })
